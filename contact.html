@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SmartDiet AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">🥗 SmartDiet AI</div>
+            <div class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </div>
+        </nav>
+
+        <div class="contact-content">
+            <div class="contact-header">
+                <h1>Get In Touch</h1>
+                <p>Have questions about how to generate your diet plan? Contact Our Team Now.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+
+                    <h2 class="button-container">Send us a Message</h2>
+                    <form id="contactForm">
+
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" placeholder="email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" placeholder="+91 9999999999" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <select id="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="diet-plan">Diet Plan Question</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message:</label>
+                            <textarea id="message" rows="4" placeholder="Tell us how we can help you..."
+                                required></textarea>
+                        </div>
+
+                        <div class="button-container">
+                            <button type="submit" class="cta-button">Send Message</button>
+                        </div>
+                        
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <strong>Email Support</strong>
+                        <p>support@aidietgenerator.com<br>
+                            Response within 24 hours</p>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <strong>Phone Support</strong>
+                        <p>+91 9999999999<br>
+                            Monday - Friday: 9AM - 6PM</p>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <strong>Office Location</strong>
+                        <p>Galgotias University<br>
+                            Gautam Buddh Nagar, Greater Noida</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <footer class="footer">
+        <p>© 2025 SmartDiet AI. All rights reserved.</p>
+    </footer>
+
+    <script src="js/contact.js"></script>
+</body>
+
+</html>

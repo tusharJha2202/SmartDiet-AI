@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart AI Diet Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+  <div class="page-container">
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">🥗 SmartDiet AI</div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero-main">
+
+      <div class="text-section">
+        <h1 class="headline">
+          <span class="line1">Transform Your Diet</span>
+          <span class="line2">With AI</span>
+        </h1>
+
+        <p class="subtext">Craft your perfect meal plan with AI that understands your body, goals, and lifestyle.</p>
+
+        <a href="form.html" class="cta-button">Start Your Journey 💪🏻</a>
+
+        <div class="stats">
+          <div class="stat-box">
+            <h3>1K+</h3>
+            <p>Plans Created</p>
+          </div>
+          <div class="stat-box">
+            <h3>24/7</h3>
+            <p>AI Support</p>
+          </div>
+          <div class="stat-box">
+            <h3>100%</h3>
+            <p>Personalized Options</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-section">
+        <div class="slider">
+          <img src="img/slider/1.avif" alt="Healthy Lifestyle" class="slide active">
+          <img src="img/slider/2.avif"alt="Fitness Food" class="slide">
+          <img src="img/slider/3.avif" alt="Workout Routine" class="slide">
+        </div>
+
+        <div class="team-slider">
+          <span class="static-text">Created by:</span>
+          <div class="slider-container">
+            <span class="slide-text">Shristi Sharma • Tushar Jha • Prem Kumar • Prasanth Kumar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <footer class="footer">
+    <p>© 2025 SmartDiet AI. All rights reserved.</p>
+  </footer>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    slides[0].classList.add('active');
+
+    setInterval(showNextSlide, 3000);
+
+    window.addEventListener('load', function () {
+      document.body.style.visibility = 'visible';
+    });
+  </script>
+
+</body>
+</html>

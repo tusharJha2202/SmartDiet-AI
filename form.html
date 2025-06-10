@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Diet Plan - AI Diet Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- For PDF generation -->
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">🥗 SmartDiet AI</div>
+            <div class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </div>
+        </nav>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Create Your Personalized Indian Diet Plan</h2>
+                <div class="step-progress">
+                    <div class="step active" data-step="1"><span>1</span> Personal Info</div>
+                    <div class="step" data-step="2"><span>2</span> Health Goals</div>
+                    <div class="step" data-step="3"><span>3</span> Diet Preferences</div>
+                    <div class="step" data-step="4"><span>4</span> Activity & Profession</div>
+                    <div class="step" data-step="5"><span>5</span> Additional Info</div>
+                </div>
+            </div>
+
+            <form id="dietForm">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" data-step="1">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" min="10" max="100" required placeholder="Enter your name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" min="10" max="100" required placeholder="Enter your age">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Height (Enter height in either cm OR Feet):</label>
+                            <div class="height-wrapper">
+                                <input type="number" id="heightCm" placeholder="cm" min="100" max="250">
+                                <input type="number" id="heightFt" placeholder="feet" min="3" max="8" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" id="weight" min="30" max="200" step="0.1" required
+                                placeholder="Enter weight in kg">
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <label for="gender">Gender:</label>
+
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="gender" value="male"> Male
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="gender" value="female"> Female
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="gender" value="other"> Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Health Goals -->
+                <div class="form-step" data-step="2">
+                    <div class="form-group">
+                        <label for="goal">Your Health Goal:</label>
+                        <textarea id="goal" rows="3" required placeholder="Describe your health and fitness goals (e.g., lose 10kg in 3 months, build muscle, improve energy levels, manage diabetes, etc.)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 3: Diet Preferences -->
+                <div class="form-step" data-step="3">
+                    <div class="form-group">
+                        <label for="budget">Daily Food Budget (₹):</label>
+                        <select id="budget" required>
+                            <option value="">Select budget range</option>
+                            <option value="budget">Budget (₹100-200)</option>
+                            <option value="moderate">Moderate (₹200-400)</option>
+                            <option value="premium">Premium (₹400-600)</option>
+                            <option value="luxury">Luxury (₹600+)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mealQty">Number of Meals per Day:</label>
+                        <select id="mealQty" required>
+                            <option value="">Select meal quantity</option>
+                            <option value="3">3 Meals (Breakfast, Lunch, Dinner)</option>
+                            <option value="4">4 Meals (+ Evening Snack)</option>
+                            <option value="5">5 Meals (+ Mid-morning Snack)</option>
+                            <option value="6">6 Meals (Small frequent meals)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cuisine">Indian Cuisine Preferences:</label>
+                        <select id="cuisine" required>
+                            <option value="">Select Cuisine Preferences</option>
+                            <option value="North Indian">North Indian</option>
+                            <option value="South Indian">South Indian</option>
+                            <option value="Gujarati">Gujarati</option>
+                            <option value="Punjabi">Punjabi</option>
+                            <option value="Maharashtrian">Maharashtrian</option>
+                            <option value="Bengali">Bengali</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foodtype">Food Preference:</label>
+                        <select id="foodtype" required>
+                            <option value="">Select Food Preference</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="non-vegetarian">Non-Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="eggetarian">Eggetarian</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 4: Activity & Profession -->
+                <div class="form-step" data-step="4">
+                    <div class="form-group">
+                        <label for="activityLevel">Activity Level:</label>
+                        <select id="activityLevel" required>
+                            <option value="">Select Activity Level</option>
+                            <option value="sedentary">Sedentary (little or no exercise)</option>
+                            <option value="lightly_active">Lightly Active (light exercise/sports 1-3 days/week)</option>
+                            <option value="moderately_active">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+                            <option value="very_active">Very Active (hard exercise/sports 6-7 days a week)</option>
+                            <option value="super_active">Super Active (very hard exercise, physical job, or training twice a day)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profession">Profession:</label>
+                        <select id="profession" required>
+                            <option value="">Select Profession</option>
+                            <option value="student">Student</option>
+                            <option value="working_professional">Working Professional</option>
+                            <option value="homemaker">Homemaker</option>
+                            <option value="retired">Retired</option>
+                            <option value="athlete">Athlete</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 5: Additional Information -->
+                <div class="form-step" data-step="5">
+                    <div class="form-group">
+                        <label for="preferences">Dietary Restrictions & Allergies:</label>
+                        <textarea id="preferences" rows="4"
+                            placeholder="Mention any food allergies, dietary restrictions (vegetarian, vegan, gluten-free), foods you dislike, medical conditions (diabetes, hypertension, etc.)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="secondary-button" id="prevBtn" style="display: none;">←Previous</button>
+                    <button type="button" class="cta-button" id="nextBtn">Next →</button>
+                    <button type="submit" class="cta-button" id="generateBtn" style="display: none;">🚀 Generate My Personalized Diet Plan</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Personalized Indian Diet Plan</h2>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Creating your personalized diet plan...</p>
+            </div>
+
+            <div id="dietPlanResult"></div>
+
+            <div class="modification-section" id="modificationSection" style="display: none;">
+                <h3>Want to modify your diet plan?</h3>
+                <p>Tell us what changes you'd like to make:</p>
+                <textarea class="modification-textarea" id="modificationText"
+                    placeholder="E.g., Replace chicken with paneer, add more protein, reduce carbs, include more South Indian dishes, etc."></textarea>
+                <div class="button-group">
+                    <button class="cta-button" id="modifyBtn">Generate Modified Plan</button>
+                    <button class="secondary-button" id="keepOriginalBtn">Keep Original Plan</button>
+                </div>
+            </div>
+
+            <div class="button-group" id="finalButtons" style="display: none;">
+                <button class="cta-button" id="downloadBtn">📥 Download Diet Plan</button>
+                <button class="secondary-button" id="newPlanBtn">Create New Plan</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 SmartDiet AI. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="js/form.js"></script>
+</body>
+
+</html>
