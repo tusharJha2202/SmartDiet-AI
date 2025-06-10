@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to right, #f0f4ff, #e0e7ff);
+    color: #1e293b;
+    line-height: 1.6;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10px 1.5rem 0;
+    background: transparent;
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+.menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    color: #4f46e5;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #1f2937;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #6366f1;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 5% 3rem 5%;
+    padding-top: 0;
+}
+
+.hero-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-top: 1rem;
+}
+
+.text-section {
+    flex: 1;
+    max-width: 600px;
+    padding-left: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.headline {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #4338ca;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.line1 {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.line2 {
+    display: block;
+    min-height: 1.2em;
+    /* Minimum height instead of fixed */
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 2px solid #4f46e5;
+    color: #4f46e5;
+    animation:
+        typing 2s steps(8, end) forwards,
+        blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 4em;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.subtext {
+    font-size: 1.2rem;
+    color: #475569;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.cta-button {
+    padding: 0.9rem 2rem;
+    width: 250px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to right, #6366f1, #3b82f6);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+
+
+/* Image Section */
+.image-section {
+    flex: 1;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.slider {
+    position: relative;
+    width: 550px;
+    height: 400px;
+    /* Fixed height */
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Team Slider Styles */
+.team-slider {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    width: 550px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 60px;
+    /* Min height instead of fixed */
+}
+
+.team-slider .static-text {
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.team-slider .slider-container {
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1;
+    max-width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slide-text {
+    display: inline-block;
+    animation: slideNames 12s linear infinite;
+    color: #4f46e5;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+@keyframes slideNames {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.stat-box {
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    flex: 1 1 180px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.stat-box h3 {
+    color: #4f46e5;
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-box p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+    
+    .hero-main {
+        flex-direction: column-reverse;
+        text-align: center;
+        align-items: center;
+    }
+
+    .image-section {
+        justify-content: center;
+        margin-top: 0;
+        position: static;
+    }
+
+    .slider,
+    .team-slider {
+        max-width: 90%;
+        min-width: unset;
+        width: 90%;
+    }
+
+    .headline {
+        font-size: 2.5rem;
+    }
+
+    .stats {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .text-section {
+        position: static;
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.85rem;
+    color: #475569;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(6px);
+    margin-top: 2rem;
+}
